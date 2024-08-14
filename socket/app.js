@@ -1,7 +1,4 @@
 import { Server } from "socket.io";
-import dotenv from "dotenv";
-
-dotenv.config({path: "../.env"});
 
 const io = new Server({
   cors: {
@@ -30,6 +27,7 @@ const getUser = (userId) => {
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.on("newUser", (userId) => {
+    console.log(socket.id);
     addUser(userId, socket.id);
   });
 
