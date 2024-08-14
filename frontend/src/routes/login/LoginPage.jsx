@@ -28,7 +28,6 @@ const LoginPage = () => {
        credentials: 'include'
       }
     );
-      console.log(response);
       updateUser(response.data);
       navigate("/");
     } catch (error) {
@@ -44,7 +43,11 @@ const LoginPage = () => {
       const { credential } = response;
       const result = await apiRequest.post("/auth/google-login", {
         idToken: credential
-      });
+      }, 
+      {
+        credentials: 'include'
+      }  
+    );
       updateUser(result.data);
       navigate("/");
     } catch (error) {
