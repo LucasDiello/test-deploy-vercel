@@ -61,6 +61,8 @@ export const login = async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         maxAge: age,
+        sameSite: "None", // Necessário para cookies de terceiros
+        secure: true, // Necessário se estiver usando HTTPS
       })
       .status(mapStatusHTTP("SUCCESSFUL"))
       .json(dataUser);

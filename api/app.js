@@ -26,6 +26,6 @@ app.use('/api/messages', messageRoute)
 app.use('/test', userRoute)
 
 
-app.listen(PORT, () => {
+app.listen(PORT, () => {    
     console.log(`Server is running on port ${PORT}`);
 }) 

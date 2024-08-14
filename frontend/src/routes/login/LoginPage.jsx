@@ -23,7 +23,12 @@ const LoginPage = () => {
       const response = await apiRequest.post("/auth/login", {
         username,
         password,
-      });
+      },
+      {
+       credentials: 'include'
+      }
+    );
+      console.log(response);
       updateUser(response.data);
       navigate("/");
     } catch (error) {
